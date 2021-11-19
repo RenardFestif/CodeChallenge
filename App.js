@@ -1,4 +1,3 @@
-import { StatusBar } from 'expo-status-bar';
 import React, { useEffect, useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
@@ -23,18 +22,20 @@ export default function App() {
   }, [])
 
   const updateSearch = (search) => {
-    // Check numeric entry => did not find searchBar entry type
+    setLoaded(false);
+    // Verify user input as being numeric entry
     const regex = /(0|[1-9][0-9]*)$/g
     if (search.match(regex) || search === '') {
       setSearch(search);
       if (search === '') {
-        setDisplayedPosts(posts)
+        // Resets the displayed post
+        setDisplayedPosts(posts);
       } else {
-        setDisplayedPosts(posts.filter(post => post.userId === Number(search)))
+        setDisplayedPosts(posts.filter(post => post.userId === Number(search)));
       }
 
     }
-    setLoaded(true)
+    setLoaded(true);
 
   }
 
@@ -97,7 +98,7 @@ const styles = StyleSheet.create({
     width: '10vh',
   },
   searchBar: {
-    width: '50vw'
+    width: '35vw'
   },
   empty: {
     marginTop: '50vh',

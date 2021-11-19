@@ -8,15 +8,10 @@ const Post = ({ post }) => {
         setSelected(!selected)
     }
 
-    const onHover = () => {
-        // Improve UX
-    }
-
     return (
         <TouchableOpacity
             style={styles.container}
             onPress={onPress}
-            onHover={onHover}
         >
             <Text style={[styles.title, styles.common]}>{post.title}</Text>
             <Text style={[styles.text, styles.common]}>@user {post.userId}</Text>
@@ -54,8 +49,7 @@ const styles = StyleSheet.create({
 
     body: {
         fontSize: 18,
-        paddingTop: "2ex",
-        paddingBottom: "2ex",
+        padding: "2ex",
         backgroundColor: '#ffff',
         width: "100%",
         textAlign: 'center',
